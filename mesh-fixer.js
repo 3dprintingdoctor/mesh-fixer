@@ -32,6 +32,8 @@ module.exports = function (cells, positions, _options) {
   var tolerance
   if ('tolerance' in options) {
     tolerance = options.tolerance
+  } else if ('toleranceX' in options) {
+    tolerance = calcTolerance(cells, positions) * options.toleranceX
   } else {
     tolerance = calcTolerance(cells, positions)
   }
